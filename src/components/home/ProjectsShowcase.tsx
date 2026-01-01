@@ -80,25 +80,33 @@ const ProjectsShowcase = () => {
                 </div>
               </DialogTrigger>
 
-              <DialogContent className="max-w-5xl bg-zinc-950 border-zinc-800 text-white overflow-y-auto max-h-[90vh]">
-                <DialogHeader>
-                  <DialogTitle className="text-2xl font-black uppercase tracking-tight text-primary flex items-center gap-2">
-                    {project.title}{" "}
-                    <span className="text-xs text-zinc-500 font-normal">
-                      Project Gallery
-                    </span>
+              <DialogContent className="max-w-[95vw] lg:max-w-[80vw] xl:max-w-[1200px] bg-zinc-950/95 border-zinc-800 text-white overflow-y-auto max-h-[95vh] p-0 md:p-6 backdrop-blur-xl">
+                <DialogHeader className="p-6 pb-0 md:p-0 mb-4">
+                  <DialogTitle className="text-2xl md:text-3xl font-black uppercase tracking-tight text-primary flex items-center gap-3">
+                    {project.title}
+                    <Badge
+                      variant="outline"
+                      className="text-zinc-500 font-mono text-[10px]">
+                      Gallery View
+                    </Badge>
                   </DialogTitle>
                 </DialogHeader>
-                <div className="grid grid-cols-1 gap-4 mt-4">
+
+                {/* Container Gambar */}
+                <div className="flex flex-col gap-8 p-4 md:p-0">
                   {project.images.map((img, idx) => (
                     <div
                       key={idx}
-                      className="rounded-xl border border-zinc-800 overflow-hidden shadow-2xl">
+                      className="relative group rounded-2xl border border-zinc-800 overflow-hidden bg-zinc-900">
                       <img
                         src={getImageUrl(img)}
                         alt={`Full preview ${idx}`}
-                        className="w-full object-contain"
+                        className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                       />
+                      {/* Subtle Overlay buat penanda urutan gambar */}
+                      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full font-bold border border-white/10">
+                        IMAGE {idx + 1} / {project.images.length}
+                      </div>
                     </div>
                   ))}
                 </div>
