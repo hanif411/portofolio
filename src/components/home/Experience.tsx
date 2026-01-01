@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/src/components/ui/card";
 import { Badge } from "@/src/components/ui/badge";
-import { Briefcase, Factory, Store, Code2 } from "lucide-react";
+import { Factory, Store, Code2 } from "lucide-react";
 
 const Experience = () => {
   const experiences = [

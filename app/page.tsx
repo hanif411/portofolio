@@ -1,10 +1,7 @@
-import { Card, CardContent } from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
 import Hero from "@/src/components/home/Hero";
 import TechStack from "@/src/components/home/TechStack";
 import Experience from "@/src/components/home/Experience";
 import ProjectsShowcase from "@/src/components/home/ProjectsShowcase";
-import AboutMe from "@/src/components/home/AboutMe";
 import SofSkills from "@/src/components/home/SofSkills";
 import ContactSection from "@/src/components/home/Contact";
 
