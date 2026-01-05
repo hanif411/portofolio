@@ -15,9 +15,9 @@ import receipt2 from "@/src/public/receipt (2).png";
 import receipt3 from "@/src/public/receipt (3).png";
 import receipt4 from "@/src/public/receipt (4).png";
 import cvku from "@/src/public/cvku (1).png";
-import cvku2 from "@/src/public/cvku (1).png";
-import cvku3 from "@/src/public/cvku (1).png";
-import cvku4 from "@/src/public/cvku (1).png";
+import cvku2 from "@/src/public/cvku (2).png";
+import cvku3 from "@/src/public/cvku (3).png";
+import cvku4 from "@/src/public/cvku (4).png";
 
 export const projects = [
   {
