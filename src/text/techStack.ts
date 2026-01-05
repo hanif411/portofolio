@@ -16,7 +16,9 @@ export const stack = [
       "React.js",
       "Zustand",
       "Axios",
-      "TanStack Query","Redux"
+      "TanStack Query",
+      "Redux",
+      "React-Hook-Form"
     ],
   },
   {
