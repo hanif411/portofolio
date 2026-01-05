@@ -14,6 +14,10 @@ import receipt from "@/src/public/receipt (1).png";
 import receipt2 from "@/src/public/receipt (2).png";
 import receipt3 from "@/src/public/receipt (3).png";
 import receipt4 from "@/src/public/receipt (4).png";
+import cvku from "@/src/public/cvku (1).png";
+import cvku2 from "@/src/public/cvku (1).png";
+import cvku3 from "@/src/public/cvku (1).png";
+import cvku4 from "@/src/public/cvku (1).png";
 
 export const projects = [
   {
@@ -64,6 +68,18 @@ export const projects = [
     liveDemo: "https://receipttracker-mu.vercel.app/",
     sourceCode: {
       frontEnd: "https://github.com/hanif411/receipttracker",
+    },
+  },
+  {
+    title: "CV-Gen Builder",
+    tag: "Productivity Tool",
+    images: [cvku, cvku2, cvku3, cvku4],
+    description:
+      "An interactive CV generator designed to simplify the resume-building process. It features dynamic form handling, real-time preview, and customizable templates to help job seekers create ATS-friendly resumes.",
+    tags: ["React.js", "Tailwind CSS", "Lucide Icons", "Framer Motion"],
+    liveDemo: "https://cvku-vert.vercel.app/",
+    sourceCode: {
+      frontEnd: "https://github.com/hanif411/cvku",
     },
   },
 ];
