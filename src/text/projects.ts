@@ -12,7 +12,7 @@ import adminai3 from "@/src/public/adminai (3).png";
 import adminai4 from "@/src/public/adminai (4).png";
 import receipt from "@/src/public/receipt (1).png";
 import receipt2 from "@/src/public/receipt (2).png";
-import receipt3 from "@/src/public/receipt2 (3).png";
+import receipt3 from "@/src/public/receipt (3).png";
 import receipt4 from "@/src/public/receipt (4).png";
 
 export const projects = [
