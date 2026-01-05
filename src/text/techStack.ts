@@ -16,6 +16,7 @@ export const stack = [
       "React.js",
       "Zustand",
       "Axios",
+      "TanStack Query","Redux"
     ],
   },
   {
