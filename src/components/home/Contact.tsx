@@ -42,7 +42,7 @@ const ContactSection = () => {
               asChild
               className="bg-blue-600 hover:bg-blue-700 font-bold gap-2 rounded-xl">
               <a
-                href="https://www.linkedin.com/in/hanif-sholihin-319301246/"
+                href="https://www.linkedin.com/in/hanifsholihin411/"
                 target="_blank">
                 Go to Linkedin <Linkedin className="w-4 h-4" />
               </a>
