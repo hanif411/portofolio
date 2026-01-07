@@ -1,6 +1,7 @@
 import { Button } from "@/src/components/ui/button";
 import StatusBadge from "../shared/StatusBadge";
 import profile from "@/src/public/profile.jpg";
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -55,10 +56,12 @@ const Hero = () => {
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-400 rounded-full opacity-75 blur transition duration-500 group-hover:opacity-100"></div>
           <div className="relative rounded-full h-64 w-64 md:h-90 md:w-90 border-8 border-background overflow-hidden bg-zinc-900">
-            <img
-              src={profile as unknown as string}
+            <Image
+              src={profile}
               alt="Hanif Sholihin"
-              className="h-full w-full object-cover object-center"
+              fill
+              className="object-cover object-center"
+              priority
             />
           </div>
         </div>
