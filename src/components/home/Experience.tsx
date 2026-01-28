@@ -5,12 +5,14 @@ import { Factory, Store, Code2 } from "lucide-react";
 const Experience = () => {
   const experiences = [
     {
-      title: "Fullstack Web Developer",
-      company: "Freelance & Specialized Projects",
-      period: "September 2025 - Present",
+      title: "Fullstack Web Developer (Intern)",
+      company: "PT Dumbways Indonesia Teknologi",
+      period: "December 2025",
       icon: <Code2 className="w-5 h-5" />,
       description:
-        "Engineered automated management systems and high-performance web applications. Successfully integrated Gemini AI to streamline data-entry workflows and architected real-time systems utilizing Redis & Socket.io for seamless user experiences.",
+        ["● Full-Stack Development & Performance: Developed scalable web applications using Go (Golang) and Next.js, implementing Redis caching and Socket.io to ensure high-performance, real-time user experiences", 
+        "● System Integration & Database: Architected robust backend systems with PostgreSQL and Prisma ORM, including secure Midtrans payment gateway integration and automated Webhooks for seamless transaction handling.",
+        "● Agile Collaboration & Code Quality: Collaborated in a fast-paced Agile/Scrum team, actively participating in sprint planning and code reviews via Git/GitHub to maintain high standards of clean code and system stability."],
       isCurrent: true,
       skills: ["Next.js", "TypeScript", "AI Integration", "PostgreSQL"],
     },
