@@ -47,7 +47,7 @@ const Header = () => {
               key={item.path}
               href={item.path}
               onClick={(e) => handleScroll(e, item.path)}
-              className="text-sm font-medium text-zinc-400 transition-colors hover:text-primary">
+              className="text-sm font-medium text-zinc-300 transition-colors hover:text-primary">
               {item.name}
             </a>
           ))}
