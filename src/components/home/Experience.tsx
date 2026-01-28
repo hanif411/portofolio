@@ -70,7 +70,7 @@ const Experience = () => {
               className={`absolute -left-[17px] top-0 p-2 rounded-full border-2 bg-zinc-950 transition-colors duration-500 ${
                 exp.isCurrent
                   ? "border-primary text-primary shadow-[0_0_15px_rgba(var(--primary),0.5)]"
-                  : "border-zinc-800 text-zinc-200"
+                  : "border-zinc-800 text-zinc-300"
               }`}>
               {exp.icon}
             </div>
@@ -83,11 +83,11 @@ const Experience = () => {
                   }`}>
                   {exp.title}
                 </h3>
-                <span className="text-xs font-mono font-bold text-zinc-200 bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full uppercase tracking-widest">
+                <span className="text-xs font-mono font-bold text-zinc-300 bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full uppercase tracking-widest">
                   {exp.period}
                 </span>
               </div>
-              <p className="text-zinc-200 font-bold flex items-center gap-2">
+              <p className="text-zinc-300 font-bold flex items-center gap-2">
                 {exp.company}
               </p>
             </div>
@@ -95,7 +95,7 @@ const Experience = () => {
             <Card className="bg-zinc-900/30 border-zinc-800/50 hover:border-primary/30 transition-all duration-300 group">
               <CardContent className="p-6">
                 {exp.description.map((desc)=>(
-                <p className="text-zinc-200 leading-relaxed text-sm md:text-base mb-6 italic">
+                <p className="text-zinc-300 leading-relaxed text-sm md:text-base mb-6 italic">
                   {desc}
                 </p>
                 ))}
@@ -105,7 +105,7 @@ const Experience = () => {
                     <Badge
                       key={skill}
                       variant="outline"
-                      className="bg-zinc-950 border-zinc-800 text-[10px] text-zinc-200 uppercase tracking-tighter group-hover:border-primary/20">
+                      className="bg-zinc-950 border-zinc-800 text-[10px] text-zinc-300 uppercase tracking-tighter group-hover:border-primary/20">
                       {skill}
                     </Badge>
                   ))}
