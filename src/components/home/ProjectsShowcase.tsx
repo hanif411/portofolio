@@ -107,11 +107,11 @@ const ProjectsShowcase = () => {
                       <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full font-bold border border-white/10">
                         IMAGE {idx + 1} / {project.images.length}
                       </div>
-                      <div className="my-4">
-                        {project.description}
-                      </div>
                     </div>
                   ))}
+                  <div className="my-4 mx-4">
+                    {project.description}
+                  </div>
                 </div>
               </DialogContent>
             </Dialog>
@@ -123,7 +123,7 @@ const ProjectsShowcase = () => {
             </CardHeader>
 
             <CardContent className="flex-grow">
-              <p className="text-zinc-400 text-sm mb-6 line-clamp-3 italic leading-relaxed">
+              <p className="text-zinc-200 text-sm mb-6 line-clamp-3 italic leading-relaxed">
                 "{project.description}"
               </p>
               <div className="flex flex-wrap gap-2">
@@ -131,7 +131,7 @@ const ProjectsShowcase = () => {
                   <Badge
                     key={tag}
                     variant="secondary"
-                    className="text-[10px] uppercase font-bold bg-zinc-800 text-zinc-400 border-zinc-700">
+                    className="text-[10px] uppercase font-bold bg-zinc-800 text-zinc-200 border-zinc-700">
                     {tag}
                   </Badge>
                 ))}
