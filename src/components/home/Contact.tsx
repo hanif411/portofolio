@@ -72,7 +72,7 @@ const ContactSection = () => {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-[2rem] p-8 md:p-12">
+      {/* <div className="max-w-4xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-[2rem] p-8 md:p-12">
         <h3 className="text-white text-center font-black uppercase tracking-tighter text-2xl mb-8 italic">
           Or send me a message
         </h3>
@@ -95,7 +95,7 @@ const ContactSection = () => {
             Send Email <Send className="w-4 h-4" />
           </Button>
         </form>
-      </div>
+      </div> */}
 
       <p className="text-center text-zinc-300 mt-20 tracking-[0.4em]">
         Copyright © 2025 Hanif Sholihin. All rights reserved.

@@ -107,6 +107,9 @@ const ProjectsShowcase = () => {
                       <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full font-bold border border-white/10">
                         IMAGE {idx + 1} / {project.images.length}
                       </div>
+                      <div className="my-4">
+                        {project.description}
+                      </div>
                     </div>
                   ))}
                 </div>

@@ -17,12 +17,15 @@ const Experience = () => {
       skills: ["Next.js", "TypeScript", "AI Integration", "PostgreSQL"],
     },
     {
-      title: "Retail Admin & Marketing",
-      company: "Toko Imam Syafii Bekasi",
+      title: "IT & Digital Operations",
+      company: "Toko Imam Syafii",
       period: "January 2024 - August 2025",
       icon: <Store className="w-5 h-5" />,
       description:
-        "Managed inventory operations and sales cycles. This frontline experience directly inspired the creation of 'Admin AI Assistant,' identifying and solving critical human-error risks in manual invoice processing through automation.",
+        ["● Web & Digital Sales Optimization: Optimized WordPress performance and product catalogs while executing high-impact Digital Ads (Google & Social Media) to drive online sales and ensure end-to-end business growth.",
+        "● System Migration & Data Integrity: Led the seamless migration of POS systems from iPos to Azzam POS and Odoo, synchronizing inventory databases to maintain 100% data integrity between stock levels and sales reports.",
+        "● Infrastructure & Technical Support: Managed comprehensive network connectivity and hardware maintenance, providing on-site and remote troubleshooting to ensure 100% system uptime for daily operations."
+        ],
       isCurrent: false,
       skills: [
         "Inventory Management",
@@ -37,7 +40,7 @@ const Experience = () => {
       period: "March 2020 - August 2022",
       icon: <Factory className="w-5 h-5" />,
       description:
-        "Executed high-precision production standards within a world-class manufacturing environment. Cultivated a rigorous industrial discipline and Quality Control (QC) mindset that now defines my standard for writing clean, optimized, and bug-free code.",
+        ["● Operational Excellence: Maintained 100% SOP adherence and high precision in Quality Control (QC) processes within a high-pressure environment, ensuring zero-defect production standards."],
       isCurrent: false,
       skills: [
         "Industrial Discipline",
@@ -91,9 +94,11 @@ const Experience = () => {
 
             <Card className="bg-zinc-900/30 border-zinc-800/50 hover:border-primary/30 transition-all duration-300 group">
               <CardContent className="p-6">
+                {exp.description.map((desc)=>(
                 <p className="text-zinc-400 leading-relaxed text-sm md:text-base mb-6 italic">
-                  "{exp.description}"
+                  {desc}
                 </p>
+                ))}
 
                 <div className="flex flex-wrap gap-2">
                   {exp.skills.map((skill) => (
