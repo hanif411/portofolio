@@ -37,7 +37,7 @@ const Experience = () => {
     {
       title: "Production Operator",
       company: "Yamaha Music Manufacturing Asia",
-      period: "March 2020 - August 2022",
+      period: "August 2020 - May 2022",
       icon: <Factory className="w-5 h-5" />,
       description:
         ["● Operational Excellence: Maintained 100% SOP adherence and high precision in Quality Control (QC) processes within a high-pressure environment, ensuring zero-defect production standards."],
