@@ -4,19 +4,19 @@ import { Mail, Linkedin, Github, Send } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section className="py-20 border-t border-zinc-800">
+    <section className="py-20 border-t border-border">
       <div className="flex items-center gap-3 mb-12">
         <span className="material-symbols-outlined">rocket_launch</span>
         Let's Connect
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-600/20 to-zinc-900 border border-zinc-800 p-8 hover:border-red-500/50 transition-all duration-300">
+        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-600/20 to-card border border-border p-8 hover:border-red-500/50 transition-all duration-300">
           <div className="relative z-10">
-            <h3 className="text-white font-black uppercase tracking-tight text-xl mb-2">
+            <h3 className="text-foreground font-black uppercase tracking-tight text-xl mb-2">
               Stay in Touch
             </h3>
-            <p className="text-zinc-400 text-sm mb-6">
+            <p className="text-muted-foreground text-sm mb-6">
               Reach out via email for inquiries or collaborations.
             </p>
             <Button
@@ -30,12 +30,12 @@ const ContactSection = () => {
           <Mail className="absolute -right-4 -bottom-4 w-32 h-32 text-red-500/10 group-hover:text-red-500/20 transition-all duration-500 rotate-12" />
         </div>
 
-        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600/20 to-zinc-900 border border-zinc-800 p-8 hover:border-blue-500/50 transition-all duration-300">
+        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600/20 to-card border border-border p-8 hover:border-blue-500/50 transition-all duration-300">
           <div className="relative z-10">
-            <h3 className="text-white font-black uppercase tracking-tight text-xl mb-2">
+            <h3 className="text-foreground font-black uppercase tracking-tight text-xl mb-2">
               Let's Connect
             </h3>
-            <p className="text-zinc-400 text-sm mb-6">
+            <p className="text-muted-foreground text-sm mb-6">
               Connect with me professionally on LinkedIn.
             </p>
             <Button
@@ -51,12 +51,12 @@ const ContactSection = () => {
           <Linkedin className="absolute -right-4 -bottom-4 w-32 h-32 text-blue-500/10 group-hover:text-blue-500/20 transition-all duration-500 rotate-12" />
         </div>
 
-        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-600/20 to-zinc-900 border border-zinc-800 p-8 hover:border-zinc-500/50 transition-all duration-300">
+        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-muted/40 to-card border border-border p-8 hover:border-muted-foreground/50 transition-all duration-300">
           <div className="relative z-10">
-            <h3 className="text-white font-black uppercase tracking-tight text-xl mb-2">
+            <h3 className="text-foreground font-black uppercase tracking-tight text-xl mb-2">
               Explore Code
             </h3>
-            <p className="text-zinc-400 text-sm mb-6">
+            <p className="text-muted-foreground text-sm mb-6">
               Explore my open-source work and projects.
             </p>
             <Button
@@ -68,7 +68,7 @@ const ContactSection = () => {
               </a>
             </Button>
           </div>
-          <Github className="absolute -right-4 -bottom-4 w-32 h-32 text-zinc-500/10 group-hover:text-zinc-500/20 transition-all duration-500 rotate-12" />
+          <Github className="absolute -right-4 -bottom-4 w-32 h-32 text-muted-foreground/10 group-hover:text-muted-foreground/20 transition-all duration-500 rotate-12" />
         </div>
       </div>
 
@@ -97,7 +97,7 @@ const ContactSection = () => {
         </form>
       </div> */}
 
-      <p className="text-center text-zinc-300 mt-20 tracking-[0.4em]">
+      <p className="text-center text-muted-foreground mt-20 tracking-[0.4em]">
         Copyright © 2025 Hanif Sholihin. All rights reserved.
       </p>
     </section>

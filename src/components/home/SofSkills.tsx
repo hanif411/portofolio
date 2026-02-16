@@ -39,7 +39,7 @@ const SoftSkills = () => {
         <span className="material-symbols-outlined text-primary text-3xl font-bold">
           psychology
         </span>
-        <h2 className="text-3xl font-black uppercase tracking-tighter text-white">
+        <h2 className="text-3xl font-black uppercase tracking-tighter text-foreground">
           Soft Skills
         </h2>
       </div>
@@ -48,16 +48,16 @@ const SoftSkills = () => {
         {skills.map((skill) => (
           <Card
             key={skill.name}
-            className="group bg-zinc-900/40 border-zinc-800 hover:border-primary/50 transition-all duration-300 overflow-hidden">
+            className="group bg-card border-border hover:border-primary/50 transition-all duration-300 overflow-hidden">
             <CardContent className="p-8">
               <div
                 className={`w-14 h-14 rounded-2xl ${skill.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                 {skill.icon}
               </div>
-              <h3 className="text-lg font-black uppercase tracking-tight text-white mb-3 leading-tight">
+              <h3 className="text-lg font-black uppercase tracking-tight text-foreground mb-3 leading-tight">
                 {skill.name}
               </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {skill.description}
               </p>
             </CardContent>

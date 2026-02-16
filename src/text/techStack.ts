@@ -3,7 +3,7 @@ export const stack = [
     category: "Frontend",
     icon: "devices",
     iconColor: "text-blue-500",
-    bgColor: "bg-zinc-900/50",
+    bgColor: "bg-card/80",
     skills: [
       "HTML",
       "CSS",
@@ -25,7 +25,7 @@ export const stack = [
     category: "Backend",
     icon: "dns",
     iconColor: "text-green-500",
-    bgColor: "bg-zinc-900/80",
+    bgColor: "bg-card",
     skills: [
       "Node.js",
       "Express.js",
@@ -42,7 +42,7 @@ export const stack = [
     category: "Integrations & Tools",
     icon: "bolt",
     iconColor: "text-purple-500",
-    bgColor: "bg-zinc-900/50",
+    bgColor: "bg-card/80",
     skills: [
       "Gemini AI API",
       "Midtrans Payment",

@@ -8,7 +8,7 @@ const Hero = () => {
     <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
       <div className="flex-1 max-w-2xl">
         <div className="animate-fade-in-up">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-foreground">
             Hi, I'm <span className="text-primary">Hanif Sholihin</span>
           </h1>
 
@@ -17,7 +17,7 @@ const Hero = () => {
           </h2>
 
           <div className="space-y-4 mb-8">
-            <p className="text-xl text-zinc-300 leading-relaxed font-medium">
+            <p className="text-xl text-muted-foreground leading-relaxed font-medium">
               Passionate about building
               <span className="text-primary font-bold">
                 {" "}
@@ -30,7 +30,7 @@ const Hero = () => {
               From engineering real-time social media platforms to integrating
               e-commerce with payment gateways. I enjoy turning complex business
               logic into clean code, often leveraging
-              <span className="text-zinc-100 font-medium"> AI automation </span>
+              <span className="text-foreground font-medium"> AI automation </span>
               to eliminate repetitive manual processes.
             </p>
           </div>
@@ -55,7 +55,7 @@ const Hero = () => {
       <div className="flex-1 flex justify-center">
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-400 rounded-full opacity-75 blur transition duration-500 group-hover:opacity-100"></div>
-          <div className="relative rounded-full h-64 w-64 md:h-90 md:w-90 border-8 border-background overflow-hidden bg-zinc-900">
+          <div className="relative rounded-full h-64 w-64 md:h-90 md:w-90 border-8 border-background overflow-hidden bg-card">
             <Image
               src={profile}
               alt="Hanif Sholihin"

@@ -57,20 +57,20 @@ const Experience = () => {
         <span className="material-symbols-outlined text-primary text-3xl font-bold">
           history_edu
         </span>
-        <h2 className="text-3xl font-black uppercase tracking-tighter text-white">
+        <h2 className="text-3xl font-black uppercase tracking-tighter text-foreground">
           Journey & Experience
         </h2>
       </div>
 
-      <div className="relative border-l-2 border-zinc-800 ml-4 md:ml-6 space-y-12">
+      <div className="relative border-l-2 border-border ml-4 md:ml-6 space-y-12">
         {experiences.map((exp, index) => (
           <div key={index} className="relative pl-8 md:pl-12">
             {/* Timeline Dot with Icon */}
             <div
-              className={`absolute -left-[17px] top-0 p-2 rounded-full border-2 bg-zinc-950 transition-colors duration-500 ${
+              className={`absolute -left-[17px] top-0 p-2 rounded-full border-2 bg-background transition-colors duration-500 ${
                 exp.isCurrent
                   ? "border-primary text-primary shadow-[0_0_15px_rgba(var(--primary),0.5)]"
-                  : "border-zinc-800 text-zinc-300"
+                  : "border-border text-muted-foreground"
               }`}>
               {exp.icon}
             </div>
@@ -79,23 +79,23 @@ const Experience = () => {
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <h3
                   className={`text-xl font-black uppercase tracking-tight ${
-                    exp.isCurrent ? "text-primary" : "text-white"
+                    exp.isCurrent ? "text-primary" : "text-foreground"
                   }`}>
                   {exp.title}
                 </h3>
-                <span className="text-xs font-mono font-bold text-zinc-300 bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full uppercase tracking-widest">
+                <span className="text-xs font-mono font-bold text-muted-foreground bg-muted border border-border px-3 py-1 rounded-full uppercase tracking-widest">
                   {exp.period}
                 </span>
               </div>
-              <p className="text-zinc-300 font-bold flex items-center gap-2">
+              <p className="text-muted-foreground font-bold flex items-center gap-2">
                 {exp.company}
               </p>
             </div>
 
-            <Card className="bg-zinc-900/30 border-zinc-800/50 hover:border-primary/30 transition-all duration-300 group">
+            <Card className="bg-card/80 border-border/50 hover:border-primary/30 transition-all duration-300 group">
               <CardContent className="p-6">
                 {exp.description.map((desc)=>(
-                <p className="text-zinc-300 leading-relaxed text-sm md:text-base mb-6 italic">
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-6 italic">
                   {desc}
                 </p>
                 ))}
@@ -105,7 +105,7 @@ const Experience = () => {
                     <Badge
                       key={skill}
                       variant="outline"
-                      className="bg-zinc-950 border-zinc-800 text-[10px] text-zinc-300 uppercase tracking-tighter group-hover:border-primary/20">
+                      className="bg-background border-border text-[10px] text-muted-foreground uppercase tracking-tighter group-hover:border-primary/20">
                       {skill}
                     </Badge>
                   ))}

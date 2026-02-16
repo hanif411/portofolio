@@ -14,7 +14,7 @@ const TechStack = () => {
         <span className="material-symbols-outlined text-primary text-3xl">
           terminal
         </span>
-        <h2 className="text-3xl font-bold tracking-tight text-white">
+        <h2 className="text-3xl font-bold tracking-tight text-foreground">
           My Tech Stack
         </h2>
       </div>
@@ -23,7 +23,7 @@ const TechStack = () => {
         {stack.map((group) => (
           <Card
             key={group.category}
-            className={`${group.bgColor} border-zinc-800 shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-zinc-700`}>
+            className={`${group.bgColor} border-border shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-border`}>
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-lg">
                 <span
@@ -39,7 +39,7 @@ const TechStack = () => {
                   <Badge
                     key={skill}
                     variant="secondary"
-                    className="bg-zinc-800/80 hover:bg-primary hover:text-primary-foreground text-zinc-300 py-1.5 px-3 border border-zinc-700/50 transition-all cursor-default">
+                    className="bg-muted/80 hover:bg-primary hover:text-primary-foreground text-muted-foreground py-1.5 px-3 border border-border/50 transition-all cursor-default">
                     {skill}
                   </Badge>
                 ))}

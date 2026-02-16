@@ -36,7 +36,7 @@ const ProjectsShowcase = () => {
         <span className="material-symbols-outlined text-primary text-3xl font-bold">
           grid_view
         </span>
-        <h2 className="text-3xl font-black uppercase tracking-tighter text-white">
+        <h2 className="text-3xl font-black uppercase tracking-tighter text-foreground">
           Selected Projects
         </h2>
       </div>
@@ -45,12 +45,12 @@ const ProjectsShowcase = () => {
         {projects.map((project) => (
           <Card
             key={project.title}
-            className="group overflow-hidden bg-zinc-900/40 border-zinc-800 flex flex-col hover:border-primary/50 transition-all duration-300">
+            className="group overflow-hidden bg-card border-border flex flex-col hover:border-primary/50 transition-all duration-300">
             <Dialog>
               <DialogTrigger asChild>
-                <div className="relative h-56 cursor-zoom-in overflow-hidden bg-zinc-800">
+                <div className="relative h-56 cursor-zoom-in overflow-hidden bg-muted">
                   {project.images.length >= 4 ? (
-                    <div className="grid grid-cols-2 h-full gap-0.5 bg-zinc-800">
+                    <div className="grid grid-cols-2 h-full gap-0.5 bg-muted">
                       {project.images.slice(0, 4).map((img, i) => (
                         <img
                           key={i}
@@ -68,25 +68,25 @@ const ProjectsShowcase = () => {
                     />
                   )}
 
-                  <div className="absolute inset-0 bg-zinc-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <div className="bg-primary p-2 rounded-full shadow-lg scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <Maximize2 className="text-white w-5 h-5" />
+                      <Maximize2 className="text-primary-foreground w-5 h-5" />
                     </div>
                   </div>
 
-                  <Badge className="absolute bottom-4 left-4 bg-primary text-white border-none font-bold">
+                  <Badge className="absolute bottom-4 left-4 bg-primary text-primary-foreground border-none font-bold">
                     {project.tag}
                   </Badge>
                 </div>
               </DialogTrigger>
 
-              <DialogContent className="max-w-[95vw] lg:max-w-[80vw] xl:max-w-[1200px] bg-zinc-950/95 border-zinc-800 text-white overflow-y-auto max-h-[95vh] p-0 md:p-6 backdrop-blur-xl">
+              <DialogContent className="max-w-[95vw] lg:max-w-[80vw] xl:max-w-[1200px] bg-background/95 border-border text-foreground overflow-y-auto max-h-[95vh] p-0 md:p-6 backdrop-blur-xl">
                 <DialogHeader className="p-6 pb-0 md:p-0 mb-4">
                   <DialogTitle className="text-2xl md:text-3xl font-black uppercase tracking-tight text-primary flex items-center gap-3">
                     {project.title}
                     <Badge
                       variant="outline"
-                      className="text-zinc-500 font-mono text-[10px]">
+                      className="text-muted-foreground font-mono text-[10px]">
                       Gallery View
                     </Badge>
                   </DialogTitle>
@@ -97,7 +97,7 @@ const ProjectsShowcase = () => {
                   {project.images.map((img, idx) => (
                     <div
                       key={idx}
-                      className="relative group rounded-2xl border border-zinc-800 overflow-hidden bg-zinc-900">
+                      className="relative group rounded-2xl border border-border overflow-hidden bg-card">
                       <img
                         src={getImageUrl(img)}
                         alt={`Full preview ${idx}`}
@@ -117,13 +117,13 @@ const ProjectsShowcase = () => {
             </Dialog>
 
             <CardHeader className="pb-2">
-              <CardTitle className="group-hover:text-primary transition-colors uppercase font-black tracking-tight text-xl text-white">
+              <CardTitle className="group-hover:text-primary transition-colors uppercase font-black tracking-tight text-xl text-foreground">
                 {project.title}
               </CardTitle>
             </CardHeader>
 
             <CardContent className="flex-grow">
-              <p className="text-zinc-300 text-sm mb-6 line-clamp-3 italic leading-relaxed">
+              <p className="text-muted-foreground text-sm mb-6 line-clamp-3 italic leading-relaxed">
                 "{project.description}"
               </p>
               <div className="flex flex-wrap gap-2">
@@ -131,14 +131,14 @@ const ProjectsShowcase = () => {
                   <Badge
                     key={tag}
                     variant="secondary"
-                    className="text-[10px] uppercase font-bold bg-zinc-800 text-zinc-300 border-zinc-700">
+                    className="text-[10px] uppercase font-bold bg-muted text-muted-foreground border-border">
                     {tag}
                   </Badge>
                 ))}
               </div>
             </CardContent>
 
-            <CardFooter className="grid grid-cols-2 gap-3 pt-6 border-t border-zinc-800/50">
+            <CardFooter className="grid grid-cols-2 gap-3 pt-6 border-t border-border/50">
               <Button
                 asChild
                 className="font-bold gap-2 bg-primary hover:bg-primary/90">
@@ -155,17 +155,17 @@ const ProjectsShowcase = () => {
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="outline"
-                      className="font-bold gap-2 border-zinc-700 hover:bg-zinc-800 text-white">
+                      className="font-bold gap-2 border-border hover:bg-muted text-foreground">
                       <Github className="w-4 h-4" /> Code
                       <ChevronDown className="w-3 h-3" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
                     align="end"
-                    className="bg-zinc-900 border-zinc-800 text-white">
+                    className="bg-card border-border text-foreground">
                     <DropdownMenuItem
                       asChild
-                      className="focus:bg-primary focus:text-white cursor-pointer py-2 text-white">
+                      className="focus:bg-primary focus:text-primary-foreground cursor-pointer py-2">
                       <a
                         href={project.sourceCode.frontEnd}
                         target="_blank"
@@ -175,7 +175,7 @@ const ProjectsShowcase = () => {
                     </DropdownMenuItem>
                     <DropdownMenuItem
                       asChild
-                      className="focus:bg-primary focus:text-white cursor-pointer py-2 text-white">
+                      className="focus:bg-primary focus:text-primary-foreground cursor-pointer py-2">
                       <a
                         href={project.sourceCode.backEnd}
                         target="_blank"
@@ -189,7 +189,7 @@ const ProjectsShowcase = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="font-bold gap-2 border-zinc-700 hover:bg-zinc-800 text-white">
+                  className="font-bold gap-2 border-border hover:bg-muted text-foreground">
                   <a
                     href={project.sourceCode.frontEnd}
                     target="_blank"
