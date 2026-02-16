@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/src/components/ui/button";
-import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Linkedin, Github, MessageCircle } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -10,7 +10,8 @@ const ContactSection = () => {
         Let's Connect
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {/* Email Card */}
         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-600/20 to-card border border-border p-8 hover:border-red-500/50 transition-all duration-300">
           <div className="relative z-10">
             <h3 className="text-foreground font-black uppercase tracking-tight text-xl mb-2">
@@ -30,6 +31,7 @@ const ContactSection = () => {
           <Mail className="absolute -right-4 -bottom-4 w-32 h-32 text-red-500/10 group-hover:text-red-500/20 transition-all duration-500 rotate-12" />
         </div>
 
+        {/* LinkedIn Card */}
         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600/20 to-card border border-border p-8 hover:border-blue-500/50 transition-all duration-300">
           <div className="relative z-10">
             <h3 className="text-foreground font-black uppercase tracking-tight text-xl mb-2">
@@ -51,6 +53,29 @@ const ContactSection = () => {
           <Linkedin className="absolute -right-4 -bottom-4 w-32 h-32 text-blue-500/10 group-hover:text-blue-500/20 transition-all duration-500 rotate-12" />
         </div>
 
+        {/* WhatsApp Card */}
+        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-600/20 to-card border border-border p-8 hover:border-green-500/50 transition-all duration-300">
+          <div className="relative z-10">
+            <h3 className="text-foreground font-black uppercase tracking-tight text-xl mb-2">
+              Quick Chat
+            </h3>
+            <p className="text-muted-foreground text-sm mb-6">
+              Chat instantly on WhatsApp for fast response.
+            </p>
+            <Button
+              asChild
+              className="bg-green-600 hover:bg-green-700 font-bold gap-2 rounded-xl">
+              <a
+                href="https://wa.me/628151624951?text=Hi%20Hanif%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect%21"
+                target="_blank">
+                Chat on WA <MessageCircle className="w-4 h-4" />
+              </a>
+            </Button>
+          </div>
+          <MessageCircle className="absolute -right-4 -bottom-4 w-32 h-32 text-green-500/10 group-hover:text-green-500/20 transition-all duration-500 rotate-12" />
+        </div>
+
+        {/* GitHub Card */}
         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-muted/40 to-card border border-border p-8 hover:border-muted-foreground/50 transition-all duration-300">
           <div className="relative z-10">
             <h3 className="text-foreground font-black uppercase tracking-tight text-xl mb-2">
@@ -71,31 +96,6 @@ const ContactSection = () => {
           <Github className="absolute -right-4 -bottom-4 w-32 h-32 text-muted-foreground/10 group-hover:text-muted-foreground/20 transition-all duration-500 rotate-12" />
         </div>
       </div>
-
-      {/* <div className="max-w-4xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-[2rem] p-8 md:p-12">
-        <h3 className="text-white text-center font-black uppercase tracking-tighter text-2xl mb-8 italic">
-          Or send me a message
-        </h3>
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input
-            type="text"
-            placeholder="Name"
-            className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-white focus:border-primary outline-none transition-all"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-white focus:border-primary outline-none transition-all"
-          />
-          <textarea
-            placeholder="Message"
-            rows={4}
-            className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-white focus:border-primary outline-none transition-all md:col-span-2"></textarea>
-          <Button className="md:col-span-2 bg-white text-black hover:bg-zinc-200 font-black uppercase tracking-widest py-6 rounded-xl gap-2">
-            Send Email <Send className="w-4 h-4" />
-          </Button>
-        </form>
-      </div> */}
 
       <p className="text-center text-muted-foreground mt-20 tracking-[0.4em]">
         Copyright © 2025 Hanif Sholihin. All rights reserved.
