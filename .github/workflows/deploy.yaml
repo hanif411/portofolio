@@ -1,0 +1,20 @@
+name: Deploy Portfolio
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build Docker image
+        run: |
+          docker build -t web-portofolio .
+          docker stop web-portofolio || true
+          docker rm web-portofolio || true
+
+          docker run -d --name web-portofolio -p 3000:3000 web-portofolio
