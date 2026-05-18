@@ -6,7 +6,7 @@ const StatusBadge = () => {
         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
       </span>
       <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
-        Available for Full-time & Freelance
+        Available for Remote Work & Freelance
       </span>
     </div>
   );

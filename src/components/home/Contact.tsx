@@ -98,7 +98,7 @@ const ContactSection = () => {
       </div>
 
       <p className="text-center text-muted-foreground mt-20 tracking-[0.4em]">
-        Copyright © 2025 Hanif Sholihin. All rights reserved.
+        Copyright © 2026 Hanif Sholihin. All rights reserved.
       </p>
     </section>
   );
