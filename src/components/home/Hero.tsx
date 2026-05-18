@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/src/components/ui/button";
 import StatusBadge from "../shared/StatusBadge";
 import profile from "@/src/public/profile.jpg";
