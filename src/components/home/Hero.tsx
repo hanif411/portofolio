@@ -13,7 +13,7 @@ const Hero = () => {
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-semibold text-primary my-5">
-            Fullstack Developer
+            Full Stack Developer
           </h2>
 
           <div className="space-y-4 mb-8">
@@ -23,15 +23,11 @@ const Hero = () => {
                 {" "}
                 Scalable Web Applications{" "}
               </span>
-              and system architectures that streamline business operations.
+              and robust backend architectures that solve real-world problems.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              From engineering real-time social media platforms to integrating
-              e-commerce with payment gateways. I enjoy turning complex business
-              logic into clean code, often leveraging
-              <span className="text-foreground font-medium"> AI automation </span>
-              to eliminate repetitive manual processes.
+              Full Stack Developer with <span className="text-foreground font-bold">2+ years of experience</span> building high-integrity production systems, from secure <span className="text-primary font-bold">banking APIs (Bank Papua integration)</span> to intelligent <span className="text-foreground font-medium">AI-powered automation tools</span> that reduce manual processing time by 80%.
             </p>
           </div>
 
@@ -40,13 +36,22 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" className="gap-2">
+            <Button asChild size="lg" className="gap-2 bg-primary hover:bg-primary/90 font-bold cursor-pointer">
+              <a href="https://drive.google.com/file/d/1MVJlCagGAaiPpA_YzlhADWghTTa9s1x4/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <span className="material-symbols-outlined">download</span>
+                Download CV
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="gap-2 font-bold cursor-pointer"
+              onClick={() => {
+                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               <span className="material-symbols-outlined">rocket_launch</span>
               View Projects
-            </Button>
-            <Button size="lg" variant="outline" className="gap-2">
-              <span className="material-symbols-outlined">mail</span>
-              Contact Me
             </Button>
           </div>
         </div>

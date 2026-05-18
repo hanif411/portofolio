@@ -1,52 +1,51 @@
 import { Card, CardContent } from "@/src/components/ui/card";
 import { Badge } from "@/src/components/ui/badge";
-import { Factory, Store, Code2 } from "lucide-react";
+import { Store, Code2, Terminal } from "lucide-react";
 
 const Experience = () => {
   const experiences = [
     {
-      title: "Fullstack Web Developer (Intern)",
-      company: "PT Dumbways Indonesia Teknologi",
-      period: "December 2025",
-      icon: <Code2 className="w-5 h-5" />,
-      description:
-        ["● Full-Stack Development & Performance: Developed scalable web applications using Go (Golang) and Next.js, implementing Redis caching and Socket.io to ensure high-performance, real-time user experiences", 
-        "● System Integration & Database: Architected robust backend systems with PostgreSQL and Prisma ORM, including secure Midtrans payment gateway integration and automated Webhooks for seamless transaction handling.",
-        "● Agile Collaboration & Code Quality: Collaborated in a fast-paced Agile/Scrum team, actively participating in sprint planning and code reviews via Git/GitHub to maintain high standards of clean code and system stability."],
+      title: "Software Engineer",
+      company: "PT Digi Sistem Solusindo",
+      period: "February 2026 - Present",
+      icon: <Terminal className="w-5 h-5" />,
+      description: [
+        "● Backend API Engineering: Engineered and enhanced backend APIs using Golang for seamless integration with Bank Papua, ensuring secure, stable, and high-integrity financial transactions.",
+        "● Performance & Notifications: Optimized application performance by implementing Redis Caching and streamlined system notifications through a robust SMTP Server integration.",
+        "● PostgreSQL Optimization: Managed and optimized complex PostgreSQL queries, implementing efficient data searching techniques to handle large-scale banking data synchronization."
+      ],
       isCurrent: true,
-      skills: ["Next.js", "TypeScript", "AI Integration", "PostgreSQL"],
+      skills: ["Go (Golang)", "Redis", "PostgreSQL", "API Integration", "SMTP Server"],
+    },
+    {
+      title: "Full Stack Developer (Internship)",
+      company: "PT Dumbways Indonesia Teknologi",
+      period: "October 2025 – January 2026",
+      icon: <Code2 className="w-5 h-5" />,
+      description: [
+        "● Full-Stack Development: Developed high-performance web applications using Golang and Next.js, implementing Redis caching to speed up API response times and user data retrieval.",
+        "● Payment Integration & Webhooks: Integrated Midtrans Payment Gateway and configured automated Webhooks with PostgreSQL, ensuring secure and automated order status synchronization.",
+        "● Agile Collaboration: Collaborated within an Agile/Scrum environment, participating in code reviews via Git/GitHub to maintain high-quality code and system stability."
+      ],
+      isCurrent: false,
+      skills: ["Go (Golang)", "Next.js", "Redis", "PostgreSQL", "Midtrans", "Agile/Scrum"],
     },
     {
       title: "IT & Digital Operations",
       company: "Toko Imam Syafii",
-      period: "January 2024 - August 2025",
+      period: "January 2024 – August 2025",
       icon: <Store className="w-5 h-5" />,
-      description:
-        ["● Web & Digital Sales Optimization: Optimized WordPress performance and product catalogs while executing high-impact Digital Ads (Google & Social Media) to drive online sales and ensure end-to-end business growth.",
-        "● System Migration & Data Integrity: Led the seamless migration of POS systems from iPos to Azzam POS and Odoo, synchronizing inventory databases to maintain 100% data integrity between stock levels and sales reports.",
-        "● Infrastructure & Technical Support: Managed comprehensive network connectivity and hardware maintenance, providing on-site and remote troubleshooting to ensure 100% system uptime for daily operations."
-        ],
-      isCurrent: false,
-      skills: [
-        "Inventory Management",
-        "Business Logic",
-        "Operational Efficiency",
-        "Automation Analysis",
+      description: [
+        "● POS & Database Migration: Led the migration of POS systems from iPos to Azzam POS and Odoo, synchronizing inventory databases to maintain 100% data integrity between stock levels and sales reports.",
+        "● Infrastructure & Network Management: Managed network infrastructure and hardware maintenance, delivering on-site and remote troubleshooting to ensure 100% system uptime for daily business operations."
       ],
-    },
-    {
-      title: "Production Operator",
-      company: "Yamaha Music Manufacturing Asia",
-      period: "August 2020 - May 2022",
-      icon: <Factory className="w-5 h-5" />,
-      description:
-        ["● Operational Excellence: Maintained 100% SOP adherence and high precision in Quality Control (QC) processes within a high-pressure environment, ensuring zero-defect production standards."],
       isCurrent: false,
       skills: [
-        "Industrial Discipline",
-        "Quality Control (QC)",
-        "SOP Adherence",
-        "Precision Engineering",
+        "POS Migration",
+        "Odoo",
+        "Database Synchronization",
+        "Network Infrastructure",
+        "System Uptime",
       ],
     },
   ];
