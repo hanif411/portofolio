@@ -1,14 +1,15 @@
-import adminai from "@/src/public/adminai (1).png";
-import adminai2 from "@/src/public/adminai (2).png";
-import adminai3 from "@/src/public/adminai (3).png";
-import adminai4 from "@/src/public/adminai (4).png";
-import studyfi from "@/src/public/studyfi.png";
-import homeserver from "@/src/public/homeserver.png";
+import { StaticImageData } from "next/image";
+import adminai from "@/src/public/adminai (1).jpeg";
+import adminai2 from "@/src/public/adminai (2).jpeg";
+import adminai3 from "@/src/public/adminai (3).jpeg";
+import adminai4 from "@/src/public/adminai (4).jpeg";
+import studyfi from "@/src/public/studyfi.jpeg";
+import homeserver from "@/src/public/homeserver.jpeg";
 
 export interface ProjectData {
   title: string;
   tag: string;
-  images: any[];
+  images: StaticImageData[];
   description: string;
   tags: string[];
   liveDemo: string;

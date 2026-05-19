@@ -36,9 +36,7 @@ const SoftSkills = () => {
   return (
     <div className="py-12">
       <div className="flex items-center gap-3 mb-10">
-        <span className="material-symbols-outlined text-primary text-3xl font-bold">
-          psychology
-        </span>
+        <Brain className="text-primary w-8 h-8" />
         <h2 className="text-3xl font-black uppercase tracking-tighter text-foreground">
           Soft Skills
         </h2>

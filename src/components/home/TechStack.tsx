@@ -6,14 +6,20 @@ import {
 } from "@/src/components/ui/card";
 import { Badge } from "@/src/components/ui/badge";
 import { stack } from "@/src/text/techStack";
+import { Terminal, Code, Monitor, Server, Wrench } from "lucide-react";
+
+const iconMap: Record<string, React.ReactNode> = {
+  code: <Code className="w-6 h-6" />,
+  devices: <Monitor className="w-6 h-6" />,
+  dns: <Server className="w-6 h-6" />,
+  construction: <Wrench className="w-6 h-6" />,
+};
 
 const TechStack = () => {
   return (
     <div className="py-12">
       <div className="flex items-center gap-3 mb-10">
-        <span className="material-symbols-outlined text-primary text-3xl">
-          terminal
-        </span>
+        <Terminal className="text-primary w-7 h-7" />
         <h2 className="text-3xl font-bold tracking-tight text-foreground">
           My Tech Stack
         </h2>
@@ -26,9 +32,8 @@ const TechStack = () => {
             className={`${group.bgColor} border-border shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-border`}>
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-lg">
-                <span
-                  className={`material-symbols-outlined ${group.iconColor}`}>
-                  {group.icon}
+                <span className={group.iconColor}>
+                  {iconMap[group.icon]}
                 </span>
                 {group.category}
               </CardTitle>
