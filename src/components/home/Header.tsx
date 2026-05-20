@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/src/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/src/components/ui/sheet";
 import { ModeToggle } from "../ui/mode-toggle";
+import { Terminal, Rocket, Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,10 +71,9 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden">
-              <span className="material-symbols-outlined">
-                {isOpen ? "close" : "menu"}
-              </span>
+              className="md:hidden"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}>
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
           </SheetTrigger>
           <SheetContent

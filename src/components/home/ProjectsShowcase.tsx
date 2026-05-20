@@ -48,7 +48,7 @@ const ProjectsShowcase = () => {
             className="group overflow-hidden bg-card border-border flex flex-col hover:border-primary/50 transition-all duration-300">
             <Dialog>
               <DialogTrigger asChild>
-                <div className="relative h-56 cursor-zoom-in overflow-hidden bg-muted">
+                <button className="relative h-56 cursor-zoom-in overflow-hidden bg-muted w-full text-left">
                   {project.images.length >= 4 ? (
                     <div className="grid grid-cols-2 h-full gap-0.5 bg-muted">
                       {project.images.slice(0, 4).map((img, i) => (
@@ -77,7 +77,7 @@ const ProjectsShowcase = () => {
                   <Badge className="absolute bottom-4 left-4 bg-primary text-primary-foreground border-none font-bold">
                     {project.tag}
                   </Badge>
-                </div>
+                </button>
               </DialogTrigger>
 
               <DialogContent className="max-w-[95vw] lg:max-w-[80vw] xl:max-w-[1200px] bg-background/95 border-border text-foreground overflow-y-auto max-h-[95vh] p-0 md:p-6 backdrop-blur-xl">
