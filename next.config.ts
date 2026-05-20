@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  experimental: {
+    inlineCss: true,
+  },
+  transpilePackages: [],
 };
 
 export default nextConfig;

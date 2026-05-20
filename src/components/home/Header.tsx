@@ -67,7 +67,8 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden">
+              className="md:hidden"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}>
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
           </SheetTrigger>

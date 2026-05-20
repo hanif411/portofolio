@@ -24,7 +24,7 @@ const ContactSection = () => {
             </p>
             <Button
               asChild
-              className="bg-red-500 hover:bg-red-600 font-bold gap-2 rounded-xl">
+              className="bg-red-600 hover:bg-red-700 font-bold gap-2 rounded-xl">
               <a href="mailto:hanifsholihin884@gmail.com">
                 Go to Gmail <Mail className="w-4 h-4" />
               </a>
@@ -66,7 +66,7 @@ const ContactSection = () => {
             </p>
             <Button
               asChild
-              className="bg-green-600 hover:bg-green-700 font-bold gap-2 rounded-xl">
+              className="bg-green-700 hover:bg-green-800 font-bold gap-2 rounded-xl">
               <a
                 href="https://wa.me/628151624951?text=Hi%20Hanif%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect%21"
                 target="_blank">
