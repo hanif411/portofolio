@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -21,21 +22,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/src/components/ui/dialog";
-import { Github, Eye, ChevronDown, Maximize2 } from "lucide-react";
+import { Github, Eye, ChevronDown, Maximize2, LayoutGrid } from "lucide-react";
 import { projects } from "@/src/text/projects";
 
 const ProjectsShowcase = () => {
-  const getImageUrl = (img: any) => {
-    if (typeof img === "string") return img;
-    return img?.src || "";
-  };
 
   return (
     <section className="py-12">
       <div className="flex items-center gap-3 mb-10">
-        <span className="material-symbols-outlined text-primary text-3xl font-bold">
-          grid_view
-        </span>
+        <LayoutGrid className="text-primary w-8 h-8" />
         <h2 className="text-3xl font-black uppercase tracking-tighter text-foreground">
           Selected Projects
         </h2>
@@ -52,19 +47,24 @@ const ProjectsShowcase = () => {
                   {project.images.length >= 4 ? (
                     <div className="grid grid-cols-2 h-full gap-0.5 bg-muted">
                       {project.images.slice(0, 4).map((img, i) => (
-                        <img
-                          key={i}
-                          src={getImageUrl(img)}
-                          alt="preview"
-                          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                        />
+                        <div key={i} className="relative w-full h-full">
+                          <Image
+                            src={img}
+                            alt="preview"
+                            fill
+                            sizes="(min-width: 1024px) 16.5vw, (min-width: 768px) 25vw, 50vw"
+                            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                          />
+                        </div>
                       ))}
                     </div>
                   ) : (
-                    <img
-                      src={getImageUrl(project.images[0])}
+                    <Image
+                      src={project.images[0]}
                       alt={project.title}
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-transform duration-500 group-hover:scale-105"
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover opacity-80 group-hover:opacity-100 transition-transform duration-500 group-hover:scale-105"
                     />
                   )}
 
@@ -98,10 +98,11 @@ const ProjectsShowcase = () => {
                     <div
                       key={idx}
                       className="relative group rounded-2xl border border-border overflow-hidden bg-card">
-                      <img
-                        src={getImageUrl(img)}
+                      <Image
+                        src={img}
                         alt={`Full preview ${idx}`}
                         className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                        sizes="(min-width: 1280px) 1200px, (min-width: 1024px) 80vw, 95vw"
                       />
                       {/* Subtle Overlay buat penanda urutan gambar */}
                       <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full font-bold border border-white/10">

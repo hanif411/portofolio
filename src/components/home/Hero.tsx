@@ -2,8 +2,9 @@
 
 import { Button } from "@/src/components/ui/button";
 import StatusBadge from "../shared/StatusBadge";
-import profile from "@/src/public/profile.jpg";
+import profile from "@/src/public/profile.jpeg";
 import Image from "next/image";
+import { Download, Rocket } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -40,7 +41,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg" className="gap-2 bg-primary hover:bg-primary/90 font-bold cursor-pointer">
               <a href="https://drive.google.com/file/d/1MVJlCagGAaiPpA_YzlhADWghTTa9s1x4/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                <span className="material-symbols-outlined">download</span>
+                <Download className="w-5 h-5" />
                 Download CV
               </a>
             </Button>
@@ -52,7 +53,7 @@ const Hero = () => {
                 document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <span className="material-symbols-outlined">rocket_launch</span>
+              <Rocket className="w-5 h-5" />
               View Projects
             </Button>
           </div>
@@ -67,6 +68,7 @@ const Hero = () => {
               src={profile}
               alt="Hanif Sholihin"
               fill
+              sizes="(max-width: 768px) 256px, 360px"
               className="object-cover object-center"
               priority
             />

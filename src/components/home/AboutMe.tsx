@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/src/components/ui/card";
 import { Button } from "@/src/components/ui/button";
-import { Download, CheckCircle2, Zap, LayoutList } from "lucide-react";
+import { Download, CheckCircle2, Zap, LayoutList, Wrench } from "lucide-react";
 
 function AboutMe() {
   return (
@@ -9,9 +9,7 @@ function AboutMe() {
         {/* Story Transition - Left */}
         <div className="flex-1 space-y-6">
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-primary text-4xl font-bold">
-              engineering
-            </span>
+            <Wrench className="text-primary w-9 h-9" />
             <h2 className="text-3xl font-black uppercase tracking-tighter text-foreground">
               Background & Story
             </h2>

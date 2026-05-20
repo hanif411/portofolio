@@ -1,13 +1,15 @@
 import React from "react";
 import { Button } from "@/src/components/ui/button";
-import { Mail, Linkedin, Github, MessageCircle } from "lucide-react";
+import { Mail, Linkedin, Github, MessageCircle, Rocket } from "lucide-react";
 
 const ContactSection = () => {
   return (
     <section className="py-20 border-t border-border">
       <div className="flex items-center gap-3 mb-12">
-        <span className="material-symbols-outlined">rocket_launch</span>
-        Let's Connect
+        <Rocket className="text-primary w-8 h-8" />
+        <h2 className="text-3xl font-black uppercase tracking-tighter text-foreground">
+          Let's Connect
+        </h2>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

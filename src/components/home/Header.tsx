@@ -36,9 +36,7 @@ const Header = () => {
           onClick={(e) => handleScroll(e, "#home")}
           className="flex items-center gap-2 font-bold text-xl group cursor-pointer">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center group-hover:scale-110 transition-transform">
-            <span className="material-symbols-outlined text-primary-foreground font-bold">
-              terminal
-            </span>
+            <Terminal className="text-primary-foreground w-5 h-5" />
           </div>
           <span className="text-foreground">Hanif Sholihin</span>
           <div>
@@ -59,9 +57,7 @@ const Header = () => {
           <Button
             onClick={(e: any) => handleScroll(e, "#contact")}
             className="gap-2 font-bold uppercase tracking-tighter">
-            <span className="material-symbols-outlined text-sm">
-              rocket_launch
-            </span>
+            <Rocket className="w-4 h-4" />
             Let's Connect
           </Button>
         </nav>
