@@ -1,71 +1,38 @@
-import { Card, CardContent } from "@/src/components/ui/card";
-import { Brain, Lightbulb, Users2, ShieldCheck, Zap } from "lucide-react";
+import { Lightbulb, Users2, ShieldCheck, Zap, type LucideIcon } from "lucide-react";
+import { softSkills } from "@/src/data/skills";
+import SectionHeading from "../shared/SectionHeading";
+import Reveal from "../shared/Reveal";
 
-const SoftSkills = () => {
-  const skills = [
-    {
-      name: "Problem Solving",
-      icon: <Lightbulb className="w-6 h-6 text-orange-500" />,
-      bg: "bg-orange-500/10",
-      description:
-        "A persistent troubleshooter. I thrive on debugging complex issues and breaking down technical challenges until I find the most efficient root-cause solution.",
-    },
-    {
-      name: "Team Collaboration",
-      icon: <Users2 className="w-6 h-6 text-green-500" />,
-      bg: "bg-green-500/10",
-      description:
-        "A proactive communicator who values collective growth. I am highly receptive to feedback and always ready to support teammates in overcoming technical roadblocks.",
-    },
-    {
-      name: "Agile Learner",
-      icon: <ShieldCheck className="w-6 h-6 text-purple-500" />,
-      bg: "bg-purple-500/10",
-      description:
-        "Driven by curiosity and a growth mindset. I quickly adapt to emerging technologies and thrive in fast-paced, high-demand development environments.",
-    },
-    {
-      name: "Clear Communication",
-      icon: <Zap className="w-6 h-6 text-blue-500" />,
-      bg: "bg-blue-500/10",
-      description:
-        "Bridging the gap between technical and non-technical stakeholders. I can simplify complex concepts into actionable insights for any audience.",
-    },
-  ];
+const icons: LucideIcon[] = [Lightbulb, Users2, ShieldCheck, Zap];
 
+const SofSkills = () => {
   return (
-    <div className="py-12">
-      <div className="flex items-center gap-3 mb-10">
-        <span className="material-symbols-outlined text-primary text-3xl font-bold">
-          psychology
-        </span>
-        <h2 className="text-3xl font-black uppercase tracking-tighter text-foreground">
-          Soft Skills
-        </h2>
-      </div>
+    <section className="py-20 md:py-28">
+      <SectionHeading index="05" title="Soft Skills" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {skills.map((skill) => (
-          <Card
-            key={skill.name}
-            className="group bg-card border-border hover:border-primary/50 transition-all duration-300 overflow-hidden">
-            <CardContent className="p-8">
-              <div
-                className={`w-14 h-14 rounded-2xl ${skill.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                {skill.icon}
+      <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2">
+        {softSkills.map((skill, index) => {
+          const Icon = icons[index % icons.length];
+
+          return (
+            <Reveal key={skill.name} delay={index * 60}>
+              <div className="flex h-full flex-col border-t border-border py-8">
+                <div className="flex items-center gap-3">
+                  <Icon className="h-4 w-4 shrink-0 text-primary" />
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                    {skill.name}
+                  </h3>
+                </div>
+                <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
+                  {skill.description}
+                </p>
               </div>
-              <h3 className="text-lg font-black uppercase tracking-tight text-foreground mb-3 leading-tight">
-                {skill.name}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {skill.description}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
+            </Reveal>
+          );
+        })}
       </div>
-    </div>
+    </section>
   );
 };
 
-export default SoftSkills;
+export default SofSkills;

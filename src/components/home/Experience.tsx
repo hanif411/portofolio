@@ -1,132 +1,75 @@
-import { Card, CardContent } from "@/src/components/ui/card";
-import { Badge } from "@/src/components/ui/badge";
-import { Store, Code2, Terminal } from "lucide-react";
+import { experiences } from "@/src/data/experience";
+import SectionHeading from "../shared/SectionHeading";
+import Reveal from "../shared/Reveal";
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: "Software Engineer",
-      company: "PT Digi Sistem Solusindo",
-      period: "February 2026 - Present",
-      icon: <Terminal className="w-5 h-5" />,
-      description: [
-        "● Backend API Engineering: Engineered and enhanced backend APIs using Golang for seamless integration with Bank Papua, ensuring secure, stable, and high-integrity financial transactions.",
-        "● Performance & Notifications: Optimized application performance by implementing Redis Caching and streamlined system notifications through a robust SMTP Server integration.",
-        "● PostgreSQL Optimization: Managed and optimized complex PostgreSQL queries, implementing efficient data searching techniques to handle large-scale banking data synchronization."
-      ],
-      isCurrent: true,
-      skills: ["Go (Golang)", "Redis", "PostgreSQL", "API Integration", "SMTP Server"],
-    },
-    {
-      title: "Full Stack Developer (Internship)",
-      company: "PT Dumbways Indonesia Teknologi",
-      period: "October 2025 – January 2026",
-      icon: <Code2 className="w-5 h-5" />,
-      description: [
-        "● Full-Stack Development: Developed high-performance web applications using Golang and Next.js, implementing Redis caching to speed up API response times and user data retrieval.",
-        "● Payment Integration & Webhooks: Integrated Midtrans Payment Gateway and configured automated Webhooks with PostgreSQL, ensuring secure and automated order status synchronization.",
-        "● Agile Collaboration: Collaborated within an Agile/Scrum environment, participating in code reviews via Git/GitHub to maintain high-quality code and system stability."
-      ],
-      isCurrent: false,
-      skills: ["Go (Golang)", "Next.js", "Redis", "PostgreSQL", "Midtrans", "Agile/Scrum"],
-    },
-    {
-      title: "IT & Digital Operations",
-      company: "Toko Imam Syafii",
-      period: "January 2024 – August 2025",
-      icon: <Store className="w-5 h-5" />,
-      description: [
-        "● POS & Database Migration: Led the migration of POS systems from iPos to Azzam POS and Odoo, synchronizing inventory databases to maintain 100% data integrity between stock levels and sales reports.",
-        "● Infrastructure & Network Management: Managed network infrastructure and hardware maintenance, delivering on-site and remote troubleshooting to ensure 100% system uptime for daily business operations."
-      ],
-      isCurrent: false,
-      skills: [
-        "POS Migration",
-        "Odoo",
-        "Database Synchronization",
-        "Network Infrastructure",
-        "System Uptime",
-      ],
-    },
-  ];
-
   return (
-    <div className="py-12">
-      <div className="flex items-center gap-3 mb-12">
-        <span className="material-symbols-outlined text-primary text-3xl font-bold">
-          history_edu
-        </span>
-        <h2 className="text-3xl font-black uppercase tracking-tighter text-foreground">
-          Journey & Experience
-        </h2>
-      </div>
+    <section className="py-20 md:py-28">
+      <SectionHeading index="01" title="Experience" />
 
-      <div className="relative border-l-2 border-border ml-4 md:ml-6 space-y-12">
+      <div className="border-b border-border">
         {experiences.map((exp, index) => (
-          <div key={index} className="relative pl-8 md:pl-12">
-            {/* Timeline Dot with Icon */}
-            <div
-              className={`absolute -left-[17px] top-0 p-2 rounded-full border-2 bg-background transition-colors duration-500 ${
-                exp.isCurrent
-                  ? "border-primary text-primary shadow-[0_0_15px_rgba(var(--primary),0.5)]"
-                  : "border-border text-muted-foreground"
-              }`}>
-              {exp.icon}
-            </div>
+          <Reveal key={exp.id} delay={index * 60}>
+            <article className="grid grid-cols-1 gap-6 border-t border-border py-10 md:grid-cols-12 md:gap-12 md:py-14">
+              <div className="md:col-span-3">
+                <div className="md:sticky md:top-28">
+                  <p className="text-sm tabular-nums text-muted-foreground">
+                    {exp.period}
+                  </p>
+                  {exp.isCurrent ? (
+                    <p className="label-mono mt-3 flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      </span>
+                      Current
+                    </p>
+                  ) : null}
+                </div>
+              </div>
 
-            <div className="flex flex-col gap-1 mb-2">
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <h3
-                  className={`text-xl font-black uppercase tracking-tight ${
-                    exp.isCurrent ? "text-primary" : "text-foreground"
-                  }`}>
+              <div className="md:col-span-9">
+                <h3 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
                   {exp.title}
                 </h3>
-                <span className="text-xs font-mono font-bold text-muted-foreground bg-muted border border-border px-3 py-1 rounded-full uppercase tracking-widest">
-                  {exp.period}
-                </span>
-              </div>
-              <p className="text-muted-foreground font-bold flex items-center gap-2">
-                {exp.company}
-              </p>
-            </div>
-
-            <Card className="bg-card/80 border-border/50 hover:border-primary/30 transition-all duration-300 group">
-              <CardContent className="p-6">
-                {exp.description.map((desc)=>(
-                <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-6 italic">
-                  {desc}
+                <p className="mt-2 text-muted-foreground">
+                  {exp.company}
+                  <span className="mx-2 text-border">/</span>
+                  <span className="text-sm">{exp.location}</span>
                 </p>
-                ))}
 
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="outline"
-                      className="bg-background border-border text-[10px] text-muted-foreground uppercase tracking-tighter group-hover:border-primary/20">
-                      {skill}
-                    </Badge>
+                <ul className="mt-8 flex flex-col gap-4">
+                  {exp.highlights.map((highlight) => (
+                    <li
+                      key={highlight}
+                      className="flex gap-4 text-base leading-relaxed text-muted-foreground">
+                      <span
+                        aria-hidden
+                        className="mt-3 h-px w-5 shrink-0 bg-primary"
+                      />
+                      <span>{highlight}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
-                {exp.isCurrent && (
-                  <div className="mt-6 flex items-center gap-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    <span className="text-[10px] font-black text-green-700 dark:text-green-400 uppercase tracking-[0.2em]">
-                      Currently Active
-                    </span>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
+                <ul className="mt-8 flex flex-wrap gap-x-2 gap-y-2">
+                  {exp.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="text-base leading-relaxed text-muted-foreground">
+                      {skill}
+                      <span aria-hidden className="mx-2 text-border">
+                        /
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          </Reveal>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

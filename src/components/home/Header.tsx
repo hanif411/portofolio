@@ -1,97 +1,93 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/src/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/src/components/ui/sheet";
+import { Button } from "@/src/components/ui/button";
 import { ModeToggle } from "../ui/mode-toggle";
-import { Terminal, Rocket, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
+const navItems = [
+  { name: "Experience", path: "#experience" },
+  { name: "Education", path: "#education" },
+  { name: "Projects", path: "#projects" },
+  { name: "Skills", path: "#skills" },
+  { name: "Contact", path: "#contact" },
+];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = [
-    { name: "Home", path: "#home" },
-    { name: "Projects", path: "#projects" },
-    { name: "Skills", path: "#skills" },
-    { name: "Experience", path: "#experience" },
-    { name: "Contact", path: "#contact" },
-  ];
-
   const handleScroll = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement, MouseEvent>,
     path: string
   ) => {
     e.preventDefault();
-    const targetId = path.replace("#", "");
-    const elem = document.getElementById(targetId);
-    elem?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(path.replace("#", ""))?.scrollIntoView({
+      behavior: "smooth",
+    });
     setIsOpen(false);
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-md">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <a
           href="#home"
           onClick={(e) => handleScroll(e, "#home")}
-          className="flex items-center gap-2 font-bold text-xl group cursor-pointer">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center group-hover:scale-110 transition-transform">
-            <span className="material-symbols-outlined text-primary-foreground font-bold">
-              terminal
-            </span>
-          </div>
-          <span className="text-foreground">Hanif Sholihin</span>
-          <div>
-            <ModeToggle/>
-          </div>
+          className="label-mono flex items-center gap-2.5 text-foreground transition-colors hover:text-primary">
+          <span aria-hidden className="text-primary">
+            &gt;
+          </span>
+          Hanif Sholihin
         </a>
 
-        <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <a
-              key={item.path}
-              href={item.path}
-              onClick={(e) => handleScroll(e, item.path)}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
-              {item.name}
-            </a>
-          ))}
-          <Button
-            onClick={(e: any) => handleScroll(e, "#contact")}
-            className="gap-2 font-bold uppercase tracking-tighter">
-            <span className="material-symbols-outlined text-sm">
-              rocket_launch
-            </span>
-            Let's Connect
-          </Button>
-        </nav>
+        <div className="flex items-center gap-2">
+          <nav className="hidden items-center gap-8 md:flex">
+            {navItems.map((item) => (
+              <a
+                key={item.path}
+                href={item.path}
+                onClick={(e) => handleScroll(e, item.path)}
+                className="label-mono text-muted-foreground transition-colors hover:text-primary">
+                {item.name}
+              </a>
+            ))}
+          </nav>
 
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}>
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="bg-background border-border">
-            <div className="flex flex-col gap-4 mt-12">
-              {navItems.map((item) => (
-                <a
-                  key={item.path}
-                  href={item.path}
-                  onClick={(e) => handleScroll(e, item.path)}
-                  className="text-2xl font-black uppercase tracking-tighter hover:text-primary transition-colors">
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </SheetContent>
-        </Sheet>
+          <ModeToggle />
+
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="md:hidden"
+                aria-label={
+                  isOpen ? "Close navigation menu" : "Open navigation menu"
+                }>
+                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="border-border bg-background">
+              <nav className="mt-16 flex flex-col gap-6">
+                {navItems.map((item, i) => (
+                  <a
+                    key={item.path}
+                    href={item.path}
+                    onClick={(e) => handleScroll(e, item.path)}
+                    className="label-mono flex items-baseline gap-4 text-foreground transition-colors hover:text-primary">
+                    <span className="text-muted-foreground">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {item.name}
+                  </a>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

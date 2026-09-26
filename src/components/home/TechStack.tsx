@@ -1,54 +1,36 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/src/components/ui/card";
-import { Badge } from "@/src/components/ui/badge";
-import { stack } from "@/src/text/techStack";
+import { stack } from "@/src/data/skills";
+import SectionHeading from "../shared/SectionHeading";
+import Reveal from "../shared/Reveal";
 
 const TechStack = () => {
   return (
-    <div className="py-12">
-      <div className="flex items-center gap-3 mb-10">
-        <span className="material-symbols-outlined text-primary text-3xl">
-          terminal
-        </span>
-        <h2 className="text-3xl font-bold tracking-tight text-foreground">
-          My Tech Stack
-        </h2>
-      </div>
+    <section className="py-20 md:py-28">
+      <SectionHeading index="04" title="Tech Stack" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stack.map((group) => (
-          <Card
-            key={group.category}
-            className={`${group.bgColor} border-border shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-border`}>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-lg">
-                <span
-                  className={`material-symbols-outlined ${group.iconColor}`}>
-                  {group.icon}
-                </span>
+      <div className="border-b border-border">
+        {stack.map((group, index) => (
+          <Reveal key={group.category} delay={index * 40}>
+            <div className="grid grid-cols-1 gap-4 border-t border-border py-8 md:grid-cols-12 md:gap-12">
+              <h3 className="text-base font-semibold tracking-tight text-foreground md:col-span-4">
                 {group.category}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
+              </h3>
+              <ul className="flex flex-wrap gap-x-2 gap-y-2 md:col-span-8">
                 {group.skills.map((skill) => (
-                  <Badge
+                  <li
                     key={skill}
-                    variant="secondary"
-                    className="bg-muted/80 hover:bg-primary hover:text-primary-foreground text-muted-foreground py-1.5 px-3 border border-border/50 transition-all cursor-default">
+                    className="text-base leading-relaxed text-muted-foreground">
                     {skill}
-                  </Badge>
+                    <span aria-hidden className="mx-2 text-border">
+                      /
+                    </span>
+                  </li>
                 ))}
-              </div>
-            </CardContent>
-          </Card>
+              </ul>
+            </div>
+          </Reveal>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

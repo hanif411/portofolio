@@ -1,205 +1,182 @@
-import React from "react";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/src/components/ui/dialog";
-import { Github, Eye, ChevronDown, Maximize2 } from "lucide-react";
-import { projects } from "@/src/text/projects";
+"use client";
 
-const ProjectsShowcase = () => {
-  const getImageUrl = (img: any) => {
-    if (typeof img === "string") return img;
-    return img?.src || "";
+import { useState } from "react";
+import Image, { type StaticImageData } from "next/image";
+import { ArrowUpRight, Images, X } from "lucide-react";
+import { projects, type Project } from "@/src/data/projects";
+import SectionHeading from "../shared/SectionHeading";
+import Reveal from "../shared/Reveal";
+
+const ProjectRow = ({ project }: { project: Project }) => {
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(0);
+  const hasGallery = project.images.length > 0;
+
+  const close = () => {
+    setOpen(false);
+    setActive(0);
   };
 
   return (
-    <section className="py-12">
-      <div className="flex items-center gap-3 mb-10">
-        <span className="material-symbols-outlined text-primary text-3xl font-bold">
-          grid_view
-        </span>
-        <h2 className="text-3xl font-black uppercase tracking-tighter text-foreground">
-          Selected Projects
-        </h2>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <Card
-            key={project.title}
-            className="group overflow-hidden bg-card border-border flex flex-col hover:border-primary/50 transition-all duration-300">
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="relative h-56 cursor-zoom-in overflow-hidden bg-muted w-full text-left">
-                  {project.images.length >= 4 ? (
-                    <div className="grid grid-cols-2 h-full gap-0.5 bg-muted">
-                      {project.images.slice(0, 4).map((img, i) => (
-                        <img
-                          key={i}
-                          src={getImageUrl(img)}
-                          alt="preview"
-                          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                        />
-                      ))}
-                    </div>
-                  ) : (
-                    <img
-                      src={getImageUrl(project.images[0])}
-                      alt={project.title}
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-transform duration-500 group-hover:scale-105"
-                    />
-                  )}
-
-                  <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <div className="bg-primary p-2 rounded-full shadow-lg scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <Maximize2 className="text-primary-foreground w-5 h-5" />
-                    </div>
-                  </div>
-
-                  <Badge className="absolute bottom-4 left-4 bg-primary text-primary-foreground border-none font-bold">
-                    {project.tag}
-                  </Badge>
-                </button>
-              </DialogTrigger>
-
-              <DialogContent className="max-w-[95vw] lg:max-w-[80vw] xl:max-w-[1200px] bg-background/95 border-border text-foreground overflow-y-auto max-h-[95vh] p-0 md:p-6 backdrop-blur-xl">
-                <DialogHeader className="p-6 pb-0 md:p-0 mb-4">
-                  <DialogTitle className="text-2xl md:text-3xl font-black uppercase tracking-tight text-primary flex items-center gap-3">
-                    {project.title}
-                    <Badge
-                      variant="outline"
-                      className="text-muted-foreground font-mono text-[10px]">
-                      Gallery View
-                    </Badge>
-                  </DialogTitle>
-                </DialogHeader>
-
-                {/* Container Gambar */}
-                <div className="flex flex-col gap-8 p-4 md:p-0">
-                  {project.images.map((img, idx) => (
-                    <div
-                      key={idx}
-                      className="relative group rounded-2xl border border-border overflow-hidden bg-card">
-                      <img
-                        src={getImageUrl(img)}
-                        alt={`Full preview ${idx}`}
-                        className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]"
-                      />
-                      {/* Subtle Overlay buat penanda urutan gambar */}
-                      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full font-bold border border-white/10">
-                        IMAGE {idx + 1} / {project.images.length}
-                      </div>
-                    </div>
-                  ))}
-                  <div className="my-4 mx-4">
-                    {project.description}
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-
-            <CardHeader className="pb-2">
-              <CardTitle className="group-hover:text-primary transition-colors uppercase font-black tracking-tight text-xl text-foreground">
-                {project.title}
-              </CardTitle>
-            </CardHeader>
-
-            <CardContent className="flex-grow">
-              <p className="text-muted-foreground text-sm mb-6 line-clamp-3 italic leading-relaxed">
-                "{project.description}"
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant="secondary"
-                    className="text-[10px] uppercase font-bold bg-muted text-muted-foreground border-border">
-                    {tag}
-                  </Badge>
-                ))}
+    <Reveal>
+      <article className="border-t border-border py-10 md:py-14">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-4">
+            {hasGallery ? (
+              <button
+                type="button"
+                onClick={() => setOpen(true)}
+                aria-label={`Open gallery for ${project.title}`}
+                className="group relative block aspect-[16/10] w-full overflow-hidden bg-muted text-left">
+                <Image
+                  src={project.images[0]}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+                <span className="absolute inset-0 ring-1 ring-inset ring-border" />
+                <span className="label-mono absolute bottom-3 left-3 inline-flex items-center gap-2 bg-background/90 px-2.5 py-2 text-foreground backdrop-blur-sm">
+                  <Images className="h-3.5 w-3.5" />
+                  {project.images.length} screens
+                </span>
+              </button>
+            ) : (
+              <div className="flex aspect-[16/10] w-full items-center justify-center border border-dashed border-border bg-muted/40">
+                <span className="label-mono text-muted-foreground">
+                  Screenshots coming soon
+                </span>
               </div>
-            </CardContent>
+            )}
+          </div>
 
-            <CardFooter className="grid grid-cols-2 gap-3 pt-6 border-t border-border/50">
-              <Button
-                asChild
-                className="font-bold gap-2 bg-primary hover:bg-primary/90">
-                <a
-                  href={project.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  <Eye className="w-4 h-4" /> Demo
-                </a>
-              </Button>
+          <div className="md:col-span-8">
+            <div className="flex items-baseline gap-4">
+              <span className="label-mono tabular-nums text-muted-foreground">
+                {project.index}
+              </span>
+              <div>
+                <h3 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+                  {project.title}
+                </h3>
+                <p className="mt-3 text-base text-muted-foreground">
+                  {project.category}
+                </p>
+              </div>
+            </div>
 
-              {project.sourceCode.backEnd ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className="font-bold gap-2 border-border hover:bg-muted text-foreground">
-                      <Github className="w-4 h-4" /> Code
-                      <ChevronDown className="w-3 h-3" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
-                    align="end"
-                    className="bg-card border-border text-foreground">
-                    <DropdownMenuItem
-                      asChild
-                      className="focus:bg-primary focus:text-primary-foreground cursor-pointer py-2">
-                      <a
-                        href={project.sourceCode.frontEnd}
-                        target="_blank"
-                        className="w-full">
-                        Frontend
-                      </a>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      asChild
-                      className="focus:bg-primary focus:text-primary-foreground cursor-pointer py-2">
-                      <a
-                        href={project.sourceCode.backEnd}
-                        target="_blank"
-                        className="w-full">
-                        Backend
-                      </a>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <Button
-                  asChild
-                  variant="outline"
-                  className="font-bold gap-2 border-border hover:bg-muted text-foreground">
-                  <a
-                    href={project.sourceCode.frontEnd}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <Github className="w-4 h-4" /> Fullstack
-                  </a>
-                </Button>
-              )}
-            </CardFooter>
-          </Card>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              {project.description}
+            </p>
+
+            <ul className="mt-8 flex flex-col gap-3">
+              {project.highlights.map((highlight) => (
+                <li
+                  key={highlight}
+                  className="flex gap-4 text-sm leading-relaxed text-muted-foreground">
+                  <span aria-hidden className="mt-3 h-px w-5 shrink-0 bg-primary" />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-col gap-6 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <ul className="flex flex-wrap gap-x-2 gap-y-2">
+                {project.tech.map((tech) => (
+                  <li
+                    key={tech}
+                    className="text-base leading-relaxed text-muted-foreground">
+                    {tech}
+                    <span aria-hidden className="mx-2 text-border">
+                      /
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <ul className="flex shrink-0 flex-wrap gap-6">
+                {project.links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors hover:text-primary">
+                      {link.label}
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {hasGallery ? (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${project.title} gallery`}
+            className={`fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-sm transition-opacity duration-300 ${
+              open ? "opacity-100" : "pointer-events-none opacity-0"
+            }`}
+            onClick={close}
+          >
+            <button
+              type="button"
+              onClick={close}
+              aria-label="Close gallery"
+              className="absolute top-6 right-6 label-mono inline-flex items-center gap-2 border border-border px-3 py-2 text-foreground transition-colors hover:border-primary">
+              <X className="h-4 w-4" />
+              Close
+            </button>
+
+            <div
+              className="relative h-[70vh] w-full max-w-5xl px-4 md:px-10"
+              onClick={(event) => event.stopPropagation()}>
+              <Image
+                key={project.images[active].src}
+                src={project.images[active]}
+                alt={`${project.title} screenshot ${active + 1}`}
+                fill
+                sizes="100vw"
+                className="animate-in fade-in-0 zoom-in-95 object-contain duration-300"
+              />
+            </div>
+
+            <div
+              className="absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-1"
+              onClick={(event) => event.stopPropagation()}>
+              {project.images.map((image: StaticImageData, i) => (
+                <button
+                  key={image.src}
+                  type="button"
+                  onClick={() => setActive(i)}
+                  aria-label={`View screenshot ${i + 1}`}
+                  aria-current={i === active}
+                  className={`h-1.5 transition-all ${
+                    i === active
+                      ? "w-8 bg-primary"
+                      : "w-1.5 bg-muted-foreground/40 hover:bg-muted-foreground"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </article>
+    </Reveal>
+  );
+};
+
+const ProjectsShowcase = () => {
+  return (
+    <section className="py-20 md:py-28">
+      <SectionHeading index="03" title="Selected Projects" />
+
+      <div className="border-b border-border">
+        {projects.map((project) => (
+          <ProjectRow key={project.id} project={project} />
         ))}
       </div>
     </section>
