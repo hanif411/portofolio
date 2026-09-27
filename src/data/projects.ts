@@ -3,6 +3,10 @@ import circle1 from "@/src/public/circle-1.png";
 import circle2 from "@/src/public/circle-2.png";
 import circle3 from "@/src/public/circle-3.png";
 import circle4 from "@/src/public/circle-4.png";
+import ecommerce1 from "@/src/public/ecommerce-1.jpg";
+import ecommerce2 from "@/src/public/ecommerce-2.jpg";
+import ecommerce3 from "@/src/public/ecommerce-3.jpg";
+import ecommerce4 from "@/src/public/ecommerce-4.jpg";
 import educId1 from "@/src/public/educasi-1.png";
 import educId2 from "@/src/public/educasi-2.png";
 import educId3 from "@/src/public/educasi-3.png";
@@ -52,8 +56,33 @@ export const projects: Project[] = [
     links: [{ label: "Live Site", href: "https://www.educasi.id" }],
   },
   {
-    id: "circle-app",
+    id: "bolu-delight",
     index: "02",
+    title: "Bolu Delight",
+    category: "E-Commerce Platform",
+    images: [ecommerce1, ecommerce2, ecommerce3, ecommerce4],
+    description:
+      "Architected a full-scale food e-commerce platform, delivering a streamlined checkout experience.",
+    highlights: [
+      "Integrated the Midtrans Payment Gateway and secure webhooks to automate real-time order status updates and ensure seamless transaction handling.",
+      "Delivered a streamlined checkout experience backed by a containerised deployment and CI/CD pipeline.",
+    ],
+    tech: ["Next.js", "Express.js", "MongoDB", "Zustand", "Midtrans"],
+    links: [
+      { label: "Live Site", href: "https://ecommerce-food-sigma.vercel.app" },
+      {
+        label: "Source Code",
+        href: "https://github.com/hanif411/Ecommerce-food",
+      },
+      {
+        label: "Backend",
+        href: "https://github.com/hanif411/BE-ecommerce",
+      },
+    ],
+  },
+  {
+    id: "circle-app",
+    index: "03",
     title: "Real-time Social Media",
     category: "Circle App",
     images: [circle1, circle2, circle3, circle4],
@@ -79,7 +108,7 @@ export const projects: Project[] = [
   },
   {
     id: "home-server",
-    index: "03",
+    index: "04",
     title: "Home Server Infrastructure & CI/CD Pipeline",
     category: "DevOps & Infrastructure",
     images: [homeserver],
